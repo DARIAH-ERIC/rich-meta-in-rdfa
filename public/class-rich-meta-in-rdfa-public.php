@@ -139,7 +139,10 @@ class Rich_Meta_In_Rdfa_Public {
      * @return string The full meta element is returned (including the namespace used)
      */
 	public function create_meta_element( $property_name, $content, $escape = true ) {
-        return "<span property=\"" . $property_name . "\">" .
-               ( ( $escape ) ? htmlspecialchars( $content ) : $content ) . "</span>\n";
+        if( $content != "") {
+            return "<span property=\"" . $property_name . "\">" .
+                   ( ( $escape ) ? htmlspecialchars( $content ) : $content ) . "</span>\n";
+        }
+        return "";
     }
 }
