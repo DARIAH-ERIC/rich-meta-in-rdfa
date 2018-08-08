@@ -157,7 +157,7 @@ class Rich_Meta_In_Rdfa {
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
 		$this->loader->add_action( 'widgets_init', new Rich_Meta_In_Rdfa_Widget(), 'rich_meta_in_rdfa_widget' );
-		$this->loader->add_action( 'wp_head', $plugin_public, 'print_rdfa' );
+		$this->loader->add_filter( 'the_content', $plugin_public, 'rmir_print_rdfa' );
 	}
 	/**
 	 * Run the loader to execute all of the hooks with WordPress.

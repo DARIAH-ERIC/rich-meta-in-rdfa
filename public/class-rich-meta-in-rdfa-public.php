@@ -2,20 +2,11 @@
 /**
  * The public-facing functionality of the plugin.
  *
- * @link       https://www.dariah.eu
- * @since      1.0.0
- *
- * @package    Rich_Meta_In_Rdfa
- * @subpackage Rich_Meta_In_Rdfa/public
- */
-
-/**
- * The public-facing functionality of the plugin.
- *
  * Defines the plugin name, version, and the hooks for how to
  * enqueue the public-facing stylesheet and JavaScript.
  * Also includes
- *
+ * @link       https://www.dariah.eu
+ * @since      1.0.0
  * @package    Rich_Meta_In_Rdfa
  * @subpackage Rich_Meta_In_Rdfa/public
  * @author     Yoann Moranville <yoann.moranville@dariah.eu>
@@ -107,20 +98,19 @@ class Rich_Meta_In_Rdfa_Public {
 	 *
 	 * @since    1.0.0
 	 *
-	 * @param $post_id int The identifier of the draft post just created
+	 * @param $content String The WP Post data that will be displayed
 	 */
-	public function print_rdfa() {
-		// The hook 'wp_head' does not accept parameters, so in order to retrieve the post's data we retrieve the
-		// global variable
+	public function rmir_print_rdfa( $content ) {
 		global $post;
 
-        echo $this->create_meta_element("dc:identifier", get_permalink( $post->ID ) );
-        echo $this->create_meta_element("dc:title", $post->post_title );
-        echo $this->create_meta_element("dc:date", $post->post_date, false );
-        echo $this->create_meta_element("dc:description", $post->post_excerpt );
-        echo $this->create_meta_element("dc:creator", get_the_author_meta( "display_name", $post->post_author ) );
-        echo $this->create_meta_element("dc:source", get_post_meta( $post->ID, "item_link", true ) );
-        echo $this->create_meta_element("dc:type", "Blog post", false );
+		$rdfa = "<div style=\"display: none;\" xmlns:dc=\"http://purl.org/dc/elements/1.1/\">\n";
+        $rdfa .= $this->create_meta_element("dc:identifier", get_permalink( $post->ID ) );
+        $rdfa .= $this->create_meta_element("dc:title", $post->post_title );
+        $rdfa .= $this->create_meta_element("dc:date", $post->post_date, false );
+        $rdfa .= $this->create_meta_element("dc:description", $post->post_excerpt );
+        $rdfa .= $this->create_meta_element("dc:creator", get_the_author_meta( "display_name", $post->post_author ) );
+        $rdfa .= $this->create_meta_element("dc:source", get_post_meta( $post->ID, "item_link", true ) );
+        $rdfa .= $this->create_meta_element("dc:type", "Blog post", false );
 
 		$languageCategory = get_category_by_slug( "languages" );
 		foreach( wp_get_post_categories( $post->ID ) as $category ) {
@@ -129,12 +119,14 @@ class Rich_Meta_In_Rdfa_Public {
 				$property = "dc:language";
 			}
 			if( !$languageCategory || $category != $languageCategory->term_id ) {
-                echo $this->create_meta_element( $property, get_category( $category )->name );
+                $rdfa .= $this->create_meta_element( $property, get_category( $category )->name );
 			}
 		}
 		foreach( wp_get_post_tags( $post->ID ) as $tag ) {
-            echo $this->create_meta_element( "dc:subject", get_tag( $tag )->name );
+            $rdfa .= $this->create_meta_element( "dc:subject", get_tag( $tag )->name );
         }
+        $rdfa .= "</div>\n";
+		return $rdfa . $content;
 	}
 
     /**
@@ -147,7 +139,7 @@ class Rich_Meta_In_Rdfa_Public {
      * @return string The full meta element is returned (including the namespace used)
      */
 	public function create_meta_element( $property_name, $content, $escape = true ) {
-	    return "<meta xmlns:dc=\"http://purl.org/dc/elements/1.1/\" property=\"" . $property_name . "\" content=\"" .
-               ( ( $escape ) ? htmlspecialchars( $content ) : $content ) . "\"/>\n";
+        return "<span property=\"" . $property_name . "\">" .
+               ( ( $escape ) ? htmlspecialchars( $content ) : $content ) . "</span>\n";
     }
 }
