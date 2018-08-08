@@ -85,7 +85,7 @@ class Rich_Meta_In_Rdfa_Public {
 	}
 
 	/**
-	 * Action to do when the html <head> is created, so we can print the RDFa data needed.
+	 * Action to do when the html post page is created, so we can print the RDFa data needed.
 	 *
 	 * dc:identifier = link to OpenMethods
 	 * dc:title = title of post

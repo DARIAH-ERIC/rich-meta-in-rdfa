@@ -9,11 +9,11 @@ Stable tag: 1.0.0
 License: Apache License - 2.0
 License URI: http://www.apache.org/licenses/LICENSE-2.0
 
-This WordPress plugin allows users to add some Dublin Core data in RDFa within the HTML header of each post.
+This WordPress plugin allows users to add some Dublin Core data in RDFa within the HTML page of each post.
 
 == Description ==
 
-This WordPress plugin allows users to add some Dublin Core data in RDFa within the HTML header of each post. Currently
+This WordPress plugin allows users to add some Dublin Core data in RDFa within the HTML page of each post. Currently
 it is all pretty straightforward because it is only used for harvesting by ISIDORE (www.rechercheisidore.fr), but in the
 future it would be nice to have some tweaks in the admin panel. i.e. Change the namespace and element name of the RDFa
 data for a given input like title or excerpt.
@@ -29,7 +29,7 @@ data for a given input like title or excerpt.
 
 Please go to the settings page of the plugin (under Settings in the Dashboard left-side menu) and uncheck the checkbox
 mentioning the link elements. It will remove the link elements within the HTML page and will stop causing problems.
-Don't worry, this setting will not break the website, it will just ommit a certain part of the HTML but the
+Don't worry, this setting will not break the website, it will just omit a certain part of the HTML but the
 functionality will still be available at the correct URL.
 
 = What elements are being created =
@@ -47,7 +47,7 @@ Here is the list of elements being created:
 
 == Screenshots ==
 
-1. Example of the output (in the <head> element of the HTML)
+1. Example of the output (in the body element of the HTML, under the entry-content div class)
 
 == Changelog ==
 

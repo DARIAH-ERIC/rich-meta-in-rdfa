@@ -55,11 +55,11 @@ class Test_Rich_Meta_In_Rdfa_Public extends WP_UnitTestCase {
 
     public function test_define_admin_hooks() {
         $this->assertFalse( has_action( 'should_never_have_existed' ) );
-        $this->assertTrue( has_action( 'wp_head' ) );
+        $this->assertTrue( has_filter( 'the_content' ) );
     }
 
     public function test_define_public_hooks() {
         $this->assertFalse( has_action( 'should_never_have_existed' ) );
-        $this->assertTrue( has_action( 'wp_head' ) );
+        $this->assertTrue( has_filter( 'the_content' ) );
     }
 }
