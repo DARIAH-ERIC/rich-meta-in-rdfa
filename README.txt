@@ -13,10 +13,8 @@ This WordPress plugin allows users to add some Dublin Core data in RDFa within t
 
 == Description ==
 
-This WordPress plugin allows users to add some Dublin Core data in RDFa within the HTML page of each post. Currently
-it is all pretty straightforward because it is only used for harvesting by ISIDORE (www.rechercheisidore.fr), but in the
-future it would be nice to have some tweaks in the admin panel. i.e. Change the namespace and element name of the RDFa
-data for a given input like title or excerpt.
+This WordPress plugin allows users to add some Dublin Core data in RDFa within the HTML page of each post.
+Currently it is all pretty straightforward because it is only used for harvesting by ISIDORE (www.rechercheisidore.fr), but in the future it would be nice to have some tweaks in the admin panel. i.e. Change the namespace and element name of the RDFa data for a given input like title or excerpt.
 
 == Installation ==
 
@@ -27,10 +25,8 @@ data for a given input like title or excerpt.
 
 = ISIDORE can not crawl my website and complains of a @rel attribute within a link element =
 
-Please go to the settings page of the plugin (under Settings in the Dashboard left-side menu) and uncheck the checkbox
-mentioning the link elements. It will remove the link elements within the HTML page and will stop causing problems.
-Don't worry, this setting will not break the website, it will just omit a certain part of the HTML but the
-functionality will still be available at the correct URL.
+Please go to the settings page of the plugin (under Settings in the Dashboard left-side menu) and uncheck the checkbox mentioning the link elements.
+It will remove the link elements within the HTML page and will stop causing problems. Don't worry, this setting will not break the website, it will just omit a certain part of the HTML but the functionality will still be available at the correct URL.
 
 = What elements are being created =
 
