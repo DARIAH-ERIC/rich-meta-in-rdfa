@@ -1,6 +1,6 @@
 # Rich Meta in RDFa
 
-_Developed by DARIAH for OpenMethods_
+_Developed by DARIAH for [OpenMethods](https://openmethods.dariah.eu/)_
  
 This WordPress plugin allows users to add some Dublin Core data in RDFa within the HTML page of each post. Currently
 it is all pretty straightforward because it is only used for harvesting by ISIDORE (www.rechercheisidore.fr), but in the
