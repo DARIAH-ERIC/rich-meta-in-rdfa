@@ -105,7 +105,7 @@ class Rich_Meta_In_Rdfa_Public {
 
 		$rdfa = "<div style=\"display: none;\" xmlns:dc=\"http://purl.org/dc/elements/1.1/\">\n";
         $rdfa .= $this->create_meta_element("dc:identifier", get_permalink( $post->ID ) );
-        $rdfa .= $this->create_meta_element("dc:title", $post->post_title );
+        $rdfa .= $this->create_meta_element("dc:title", $post->post_title . " - " . get_bloginfo());
         $rdfa .= $this->create_meta_element("dc:date", $post->post_date, false );
         $rdfa .= $this->create_meta_element("dc:description", $post->post_excerpt );
         $rdfa .= $this->create_meta_element("dc:creator", get_the_author_meta( "display_name", $post->post_author ) );
