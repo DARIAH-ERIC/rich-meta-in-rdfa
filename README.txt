@@ -5,7 +5,7 @@ Tags: digital humanities, dublin core, rdfa, isidore
 Requires at least: 4.9.1
 Tested up to: 4.9.1
 Requires PHP: 5.6.35
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: Apache License - 2.0
 License URI: http://www.apache.org/licenses/LICENSE-2.0
 
@@ -47,8 +47,16 @@ Here is the list of elements being created:
 
 == Changelog ==
 
+= 1.1.0 =
+* The metadata is not anymore in the header part of the HTML but in the beginning of the post and inside an hidden
+div instead of meta elements
+
 = 1.0.0 =
-* Very first version
+* An admin has possibility to hide 2 link elements in the header because of some rel attribute that do not pass
+validation on ISIDORE (view plugin settings)
+* 9 Dublin Core elements are used statically (dc:title is WP Post title, etc...)
+* First version with no administration panel for Dublin Core elements yet
+
 
 == Upgrade Notice ==
 
