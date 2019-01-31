@@ -134,6 +134,8 @@ class Rich_Meta_In_Rdfa_Public {
     /**
      * Creates the HTML meta element given a property name and its content
      *
+     * @since    1.1.0
+     *
      * @param $property_name String The name of the property for the meta element
      * @param $content String The content of the meta element
      * @param bool $escape True if we should escape the content
@@ -150,6 +152,8 @@ class Rich_Meta_In_Rdfa_Public {
 
     /**
      * Generate the Sitemap used by the plugin - including only the WP posts, url and last modification date
+     *
+     * @since    1.2.0
      */
     public function generate_rich_meta_in_rdfa_sitemap() {
         $url = "/rich-meta-in-rdfa.xml";
@@ -172,6 +176,8 @@ class Rich_Meta_In_Rdfa_Public {
     /**
      * Filters out unnecessary fields of the WP_Query
      *
+     * @since    1.2.0
+     *
      * @return string The minimum fields required for the posts
      */
     public function filterPostFields() {
@@ -182,6 +188,8 @@ class Rich_Meta_In_Rdfa_Public {
 
     /**
      * Generates the Sitemap content
+     *
+     * @since    1.2.0
      *
      * @return string The content of all posts in an XML format: multiple <url><loc>...</loc><lastmod>..
      * .</lastmod></url>
