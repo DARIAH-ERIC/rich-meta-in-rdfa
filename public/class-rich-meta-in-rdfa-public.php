@@ -84,22 +84,24 @@ class Rich_Meta_In_Rdfa_Public {
 			, $this->version, false );
 	}
 
-	/**
-	 * Action to do when the html post page is created, so we can print the RDFa data needed.
-	 *
-	 * dc:identifier = link to OpenMethods
-	 * dc:title = title of post
-	 * dc:date = publication data on OpenMethods
-	 * dc:description = introduction written by our editors (excerpt)
-	 * dc:creator = the editor who wrote the introduction
-	 * dc:source = Source link
-	 * dc:subject = TaDiRAH categories
-	 * dc:language = languages (also coming from the categories)
-	 *
-	 * @since    1.0.0
-	 *
-	 * @param $content String The WP Post data that will be displayed
-	 */
+    /**
+     * Action to do when the html post page is created, so we can print the RDFa data needed.
+     *
+     * dc:identifier = link to OpenMethods
+     * dc:title = title of post
+     * dc:date = publication data on OpenMethods
+     * dc:description = introduction written by our editors (excerpt)
+     * dc:creator = the editor who wrote the introduction
+     * dc:source = Source link
+     * dc:subject = TaDiRAH categories
+     * dc:language = languages (also coming from the categories)
+     *
+     * @since    1.0.0
+     *
+     * @param $content String The WP Post data that will be displayed
+     *
+     * @return string The whole HTML content including the RDFa to be sent back to the post
+     */
 	public function rmir_print_rdfa( $content ) {
 		global $post;
 
@@ -144,5 +146,64 @@ class Rich_Meta_In_Rdfa_Public {
                    ( ( $escape ) ? htmlspecialchars( $content ) : $content ) . "</span>\n";
         }
         return "";
+    }
+
+    /**
+     * Generate the Sitemap used by the plugin - including only the WP posts, url and last modification date
+     */
+    public function generate_rich_meta_in_rdfa_sitemap() {
+        $url = "/rich-meta-in-rdfa.xml";
+        if( $_SERVER['REQUEST_URI'] === $url ) {
+
+            $rich_meta_in_rdfa_options = get_option( $this->plugin_name );
+            $create_sitemap_xml = $rich_meta_in_rdfa_options['create_sitemap_xml'];
+            if( $create_sitemap_xml ) {
+                header( 'Content-type: application/xml; charset=utf-8' );
+                echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?><urlset xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd\" xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">";
+
+                echo $this->generateContent();
+
+                echo '</urlset>';
+                exit;
+            }
+        }
+    }
+
+    /**
+     * Filters out unnecessary fields of the WP_Query
+     *
+     * @return string The minimum fields required for the posts
+     */
+    public function filterPostFields() {
+        global $wpdb;
+        $p = $wpdb->posts;
+        return "$p.ID, $p.post_date, $p.post_title, $p.post_status, $p.post_modified, $p.post_type";
+    }
+
+    /**
+     * Generates the Sitemap content
+     *
+     * @return string The content of all posts in an XML format: multiple <url><loc>...</loc><lastmod>..
+     * .</lastmod></url>
+     */
+    public function generateContent() {
+        add_filter( 'posts_fields', array( $this, 'filterPostFields' ) );
+        $q = new WP_Query( array(
+            'post_type' => 'post',
+            'post_status' => 'publish',
+            'posts_per_page' => 100000,
+            'lang' => ''
+        ) );
+        remove_filter( 'posts_fields', array( $this, 'filterPostFields' ) );
+
+        $xml = "";
+        while( $q->have_posts() ) {
+            $q->the_post();
+            $url = esc_url( get_permalink() );
+            $date = get_the_modified_date( 'Y-m-d\TH:i:sP' );
+            $xml .= '<url><loc>' . $url . '</loc><lastmod>' . $date . '</lastmod></url>';
+        }
+        wp_reset_postdata();
+        return $xml;
     }
 }

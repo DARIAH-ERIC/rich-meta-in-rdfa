@@ -27,6 +27,8 @@
 		//Grab all options
         $rich_meta_in_rdfa_options = get_option( $this->plugin_name );
         $keep_rel_link_head = $rich_meta_in_rdfa_options['keep_rel_link_head'];
+        $create_sitemap_xml = $rich_meta_in_rdfa_options['create_sitemap_xml'];
+
         $html = "<tr>
                     <th scope=\"row\">
                         <label for=\"" . $this->plugin_name . "-keep-rel-link-head\">" . translate('Keep the link elements with weird rel attributes',
@@ -35,6 +37,16 @@
                     <td>
                         <input name=\"" . $this->plugin_name . "[keep_rel_link_head]\" id=\"" . $this->plugin_name
                         . "-keep-rel-link-head\" " . ( $keep_rel_link_head?"checked":"" ) . " type=\"checkbox\">
+                    </td>
+                </tr>";
+        $html .= "<tr>
+                    <th scope=\"row\">
+                        <label for=\"" . $this->plugin_name . "-create-sitemap-xml\">" . translate('Create a sitemap with only the posts (rich-meta-in-rdfa.xml)',
+                $this->plugin_name) . "</label>
+                    </th>
+                    <td>
+                        <input name=\"" . $this->plugin_name . "[create_sitemap_xml]\" id=\"" . $this->plugin_name
+                        . "-create-sitemap-xml\" " . ( $create_sitemap_xml?"checked":"" ) . " type=\"checkbox\">
                     </td>
                 </tr>";
 

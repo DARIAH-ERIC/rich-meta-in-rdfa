@@ -158,6 +158,8 @@ class Rich_Meta_In_Rdfa {
 
 		$this->loader->add_action( 'widgets_init', new Rich_Meta_In_Rdfa_Widget(), 'rich_meta_in_rdfa_widget' );
 		$this->loader->add_filter( 'the_content', $plugin_public, 'rmir_print_rdfa' );
+
+		$this->loader->add_filter( 'init', $plugin_public, 'generate_rich_meta_in_rdfa_sitemap' );
 	}
 	/**
 	 * Run the loader to execute all of the hooks with WordPress.

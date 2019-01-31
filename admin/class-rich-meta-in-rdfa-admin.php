@@ -126,7 +126,7 @@ class Rich_Meta_In_Rdfa_Admin {
 	 * @since    1.0.0
 	 */
 	public function options_update() {
-		register_setting( $this->plugin_name, $this->plugin_name, array( 'sanitize_callback' => array( $this, 'validate' ), 'default' => array( 'keep_rel_link_head' => false ) ) );
+		register_setting( $this->plugin_name, $this->plugin_name, array( 'sanitize_callback' => array( $this, 'validate' ), 'default' => array( 'keep_rel_link_head' => false, 'create_sitemap_xml' => false ) ) );
 	}
 	/**
 	 * Validate all options fields
@@ -137,6 +137,8 @@ class Rich_Meta_In_Rdfa_Admin {
 		// All checkboxes inputs
 		$valid = array();
         $valid['keep_rel_link_head'] = ( isset( $input['keep_rel_link_head'] ) && !empty( $input['keep_rel_link_head'] )
+        ) ? true : false;
+        $valid['create_sitemap_xml'] = ( isset( $input['create_sitemap_xml'] ) && !empty( $input['create_sitemap_xml'] )
         ) ? true : false;
         return $valid;
 	}
