@@ -4,6 +4,10 @@ All notable changes to the Rich Meta in RDFa plugin will be documented in this f
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.2.1] - 2019-02-07
+- The sitemap rich-meta-in-rdfa.xml was wrong on websites using permalink with full name of the post6, instead of ones 
+with identifiers
+
 ## [1.2.0] - 2019-01-31
 - A special sitemap can now be created to provide all posts of WP, their URL and Last modification date, this is
 available in the option of the tool
