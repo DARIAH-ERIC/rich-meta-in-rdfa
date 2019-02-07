@@ -183,7 +183,7 @@ class Rich_Meta_In_Rdfa_Public {
     public function filterPostFields() {
         global $wpdb;
         $p = $wpdb->posts;
-        return "$p.ID, $p.post_date, $p.post_title, $p.post_status, $p.post_modified, $p.post_type";
+        return "$p.ID, $p.post_date, $p.post_title, $p.post_name, $p.post_status, $p.post_modified, $p.post_type";
     }
 
     /**
