@@ -104,10 +104,15 @@ class Rich_Meta_In_Rdfa_Public {
      */
 	public function rmir_print_rdfa( $content ) {
 		global $post;
+        $rich_meta_in_rdfa_options = get_option( $this->plugin_name );
+        $pre_title = '';
+        if( in_array( 'intro_text', $rich_meta_in_rdfa_options ) ) {
+            $pre_title .= $rich_meta_in_rdfa_options['intro_text'] . ' ';
+        }
 
 		$rdfa = "<div style=\"display: none;\" xmlns:dc=\"http://purl.org/dc/elements/1.1/\">\n";
         $rdfa .= $this->create_meta_element("dc:identifier", get_permalink( $post->ID ) );
-        $rdfa .= $this->create_meta_element("dc:title", $post->post_title . " - " . get_bloginfo());
+        $rdfa .= $this->create_meta_element("dc:title", $pre_title . $post->post_title);
         $rdfa .= $this->create_meta_element("dc:date", $post->post_date, false );
         $rdfa .= $this->create_meta_element("dc:description", $post->post_excerpt );
         $rdfa .= $this->create_meta_element("dc:creator", get_the_author_meta( "display_name", $post->post_author ) );

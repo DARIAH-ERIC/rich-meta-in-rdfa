@@ -126,7 +126,7 @@ class Rich_Meta_In_Rdfa_Admin {
 	 * @since    1.0.0
 	 */
 	public function options_update() {
-		register_setting( $this->plugin_name, $this->plugin_name, array( 'sanitize_callback' => array( $this, 'validate' ), 'default' => array( 'keep_rel_link_head' => false, 'create_sitemap_xml' => false ) ) );
+		register_setting( $this->plugin_name, $this->plugin_name, array( 'sanitize_callback' => array( $this, 'validate' ), 'default' => array( 'keep_rel_link_head' => false, 'create_sitemap_xml' => false, 'intro_text' => '' ) ) );
 	}
 	/**
 	 * Validate all options fields
@@ -140,6 +140,7 @@ class Rich_Meta_In_Rdfa_Admin {
         ) ? true : false;
         $valid['create_sitemap_xml'] = ( isset( $input['create_sitemap_xml'] ) && !empty( $input['create_sitemap_xml'] )
         ) ? true : false;
+        $valid['intro_text'] = (isset($input['intro_text']) && !empty($input['intro_text'])) ? sanitize_text_field($input['intro_text']) : '';
         return $valid;
 	}
 }

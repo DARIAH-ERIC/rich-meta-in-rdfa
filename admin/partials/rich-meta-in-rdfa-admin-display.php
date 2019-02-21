@@ -28,6 +28,7 @@
         $rich_meta_in_rdfa_options = get_option( $this->plugin_name );
         $keep_rel_link_head = $rich_meta_in_rdfa_options['keep_rel_link_head'];
         $create_sitemap_xml = $rich_meta_in_rdfa_options['create_sitemap_xml'];
+        $intro_text = $rich_meta_in_rdfa_options['intro_text'];
 
         $html = "<tr>
                     <th scope=\"row\">
@@ -47,6 +48,16 @@
                     <td>
                         <input name=\"" . $this->plugin_name . "[create_sitemap_xml]\" id=\"" . $this->plugin_name
                         . "-create-sitemap-xml\" " . ( $create_sitemap_xml?"checked":"" ) . " type=\"checkbox\">
+                    </td>
+                </tr>";
+        $html .= "<tr>
+                    <th scope=\"row\">
+                        <label for=\"" . $this->plugin_name . "-intro-text\">" . translate('Create an introduction text for the title (i.e. \'OpenMethods introduction to: \'',
+                $this->plugin_name) . "</label>
+                    </th>
+                    <td>
+                        <input name=\"" . $this->plugin_name . "[intro_text]\" id=\"" . $this->plugin_name
+                        . "-intro-text\" value=\"" . $intro_text . "\" type=\"text\">
                     </td>
                 </tr>";
 
