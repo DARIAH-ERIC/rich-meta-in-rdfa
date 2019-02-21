@@ -16,7 +16,7 @@
  * Plugin Name:       Rich Meta in RDFa Plugin
  * Plugin URI:        https://github.com/dariah-eric/rich-meta-in-rdfa
  * Description:       This plugin allows user to add RDFa into their posts.
- * Version:           1.2.2
+ * Version:           1.2.3
  * Author:            Yoann
  * Author URI:        https://www.dariah.eu
  * License:           Apache License - 2.0

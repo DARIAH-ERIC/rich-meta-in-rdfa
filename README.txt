@@ -5,7 +5,7 @@ Tags: digital humanities, dublin core, rdfa, isidore
 Requires at least: 4.9.1
 Tested up to: 4.9.1
 Requires PHP: 5.6.35
-Stable tag: 1.2.2
+Stable tag: 1.2.3
 License: Apache License - 2.0
 License URI: http://www.apache.org/licenses/LICENSE-2.0
 
@@ -46,6 +46,9 @@ Here is the list of elements being created:
 1. Example of the output (in the body element of the HTML, under the entry-content div class)
 
 == Changelog ==
+
+= 1.2.3 =
+* Fix bug that adds an empty space before the dc:title
 
 = 1.2.2 =
 * The title of each post is now preceded by a mention (if filled) editable in the settings page

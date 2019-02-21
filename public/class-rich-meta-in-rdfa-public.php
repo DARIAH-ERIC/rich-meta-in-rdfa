@@ -106,7 +106,7 @@ class Rich_Meta_In_Rdfa_Public {
 		global $post;
         $rich_meta_in_rdfa_options = get_option( $this->plugin_name );
         $pre_title = '';
-        if( in_array( 'intro_text', $rich_meta_in_rdfa_options ) ) {
+        if( in_array( 'intro_text', $rich_meta_in_rdfa_options ) && $rich_meta_in_rdfa_options['intro_text'] != '' ) {
             $pre_title .= $rich_meta_in_rdfa_options['intro_text'] . ' ';
         }
 
