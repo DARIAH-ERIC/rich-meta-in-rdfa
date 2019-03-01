@@ -52,7 +52,7 @@
                 </tr>";
         $html .= "<tr>
                     <th scope=\"row\">
-                        <label for=\"" . $this->plugin_name . "-intro-text\">" . translate('Create an introduction text for the title (i.e. \'OpenMethods introduction to: \'',
+                        <label for=\"" . $this->plugin_name . "-intro-text\">" . translate('Create an introduction text for the title (i.e. \'OpenMethods introduction to: \')',
                 $this->plugin_name) . "</label>
                     </th>
                     <td>
