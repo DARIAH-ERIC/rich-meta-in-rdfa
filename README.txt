@@ -14,7 +14,9 @@ This WordPress plugin allows users to add some Dublin Core data in RDFa within t
 == Description ==
 
 This WordPress plugin allows users to add some Dublin Core data in RDFa within the HTML page of each post.
-Currently it is all pretty straightforward because it is only used for harvesting by ISIDORE (www.rechercheisidore.fr), but in the future it would be nice to have some tweaks in the admin panel. i.e. Change the namespace and element name of the RDFa data for a given input like title or excerpt.
+Currently it is all pretty straightforward because it is only used for harvesting by ISIDORE (https://isidore.science),
+but
+in the future it would be nice to have some tweaks in the admin panel. i.e. Change the namespace and element name of the RDFa data for a given input like title or excerpt.
 
 == Installation ==
 
