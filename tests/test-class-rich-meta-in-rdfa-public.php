@@ -1,13 +1,11 @@
 <?php
 /**
  * Class TestClassRichMetaInRdfaPublic
+ * Unit tests for the public-facing functionalities
  *
  * @package Rich_Meta_In_Rdfa/tests
  */
 
-/**
- * Unit tests for the public-facing functionalities
- */
 class Test_Rich_Meta_In_Rdfa_Public extends WP_UnitTestCase {
 
     public function setUp() {
