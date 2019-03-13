@@ -94,10 +94,6 @@ class Rich_Meta_In_Rdfa {
 		 * The class responsible for defining all actions that occur in the public-facing side of the site.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-rich-meta-in-rdfa-public.php';
-		/**
-		 * The class responsible for defining all actions that occur in the public-facing widget side of the site.
-		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-rich-meta-in-rdfa-widget.php';
 		$this->loader = new Rich_Meta_In_Rdfa_Loader();
 	}
 	/**
@@ -145,7 +141,6 @@ class Rich_Meta_In_Rdfa {
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
-		$this->loader->add_action( 'widgets_init', new Rich_Meta_In_Rdfa_Widget(), 'rich_meta_in_rdfa_widget' );
 		$this->loader->add_filter( 'the_content', $plugin_public, 'rmir_print_rdfa' );
 
 		$this->loader->add_filter( 'init', $plugin_public, 'generate_rich_meta_in_rdfa_sitemap' );
