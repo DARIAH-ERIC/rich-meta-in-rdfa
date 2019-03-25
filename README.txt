@@ -3,9 +3,9 @@ Contributors: yoannspace
 Donate link:
 Tags: digital humanities, dublin core, rdfa, isidore
 Requires at least: 4.9.1
-Tested up to: 4.9.1
+Tested up to: 5.1.1
 Requires PHP: 5.6.35
-Stable tag: 1.2.3
+Stable tag: 1.2.4
 License: Apache License - 2.0
 License URI: http://www.apache.org/licenses/LICENSE-2.0
 
@@ -48,6 +48,9 @@ Here is the list of elements being created:
 1. Example of the output (in the body element of the HTML, under the entry-content div class)
 
 == Changelog ==
+
+= 1.2.4 =
+* Testing done for WordPress v5.x (up to v5.1.1)
 
 = 1.2.3 =
 * Fix bug that adds an empty space before the dc:title

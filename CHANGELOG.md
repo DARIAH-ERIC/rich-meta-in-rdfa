@@ -4,6 +4,9 @@ All notable changes to the Rich Meta in RDFa plugin will be documented in this f
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.2.4] - 2019-03-25
+- Testing done for WordPress v5.x (up to v5.1.1)
+
 ## [1.2.3] - 2019-02-21
 - Fix bug that adds an empty space before the dc:title
 
