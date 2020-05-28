@@ -53,7 +53,7 @@ class Rich_Meta_In_Rdfa {
 		if ( defined( 'RICH_META_IN_RDFA_VERSION' ) ) {
 			$this->version = RICH_META_IN_RDFA_VERSION;
 		} else {
-			$this->version = '1.2.4';
+			$this->version = '1.2.5';
 		}
 		$this->plugin_name = 'rich-meta-in-rdfa';
 		$this->load_dependencies();
