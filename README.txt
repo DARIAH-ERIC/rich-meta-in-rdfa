@@ -3,7 +3,7 @@ Contributors: yoannspace
 Donate link:
 Tags: digital humanities, dublin core, rdfa, isidore
 Requires at least: 4.9.1
-Tested up to: 5.4.1
+Tested up to: 5.8
 Requires PHP: 5.6.35
 Stable tag: 1.2.6
 License: Apache License - 2.0
